@@ -16,8 +16,11 @@
         <div class="center">
             <div class="my-noticia__campo">
 
-                <h1>Titulo da noticia criada de forma estatica</h1>
-                <div class="autor"><p>Por Luís Fernando</p></div>
+                <h1><%= post.titulo %></h1>
+                <div class="autor"><p>Escrito por <%= post.autor %></p></div>
+                <div class="my-noticia__img">
+                    <img src="<%= post.imagem %>" alt="">
+                </div>
                 <article>
 
                     <p>
@@ -92,46 +95,26 @@
                     </div>
 
                     <div class="box-card-v2__capsulas">
-
-                        <div class="card-v2">
-                            <div class="card-v2__capa">
-                                <img src="../public/images/banner.jpg" alt="">
-                            </div>
-                            <div class="card-v2__info">
-                                <div class="card-v2__info__wraper">
-                                    <p class="card-v2__titulo">Natureza</p>
-                                    <p class="card-v2__conteudo">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi cumque 
-                                        ipsam maxime quae sed.
-                                    </p>
-                                    <div class="card-v2__saiba-mais">
-                                        <a href="/noticia-informativa">
-                                            Saiba mais
-                                        </a>
-                                    </div>
+                        <% for(let i = 0; i < postsTop.length; i++) { %>
+                            <div class="card-v2">
+                                <div class="card-v2__capa">
+                                    <img src="<%= postsTop[i].imagem %>" alt="">
                                 </div>
-                            </div><!--card-v2__info-->
-                        </div><!--card-v2-->
-
-                         <div class="card-v2">
-                            <div class="card-v2__capa">
-                                <img src="../public/images/banner.jpg" alt="">
-                            </div>
-                            <div class="card-v2__info">
-                                <div class="card-v2__info__wraper">
-                                    <p class="card-v2__titulo">Natureza</p>
-                                    <p class="card-v2__conteudo">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    </p>
-                                    <div class="card-v2__saiba-mais">
-                                        <a href="/noticia-informativa">
-                                            Saiba mais
-                                        </a>
+                                <div class="card-v2__info">
+                                    <div class="card-v2__info__wraper">
+                                        <p class="card-v2__titulo"><%= postsTop[i].titulo %></p>
+                                        <p class="card-v2__conteudo">
+                                            <%- postsTop[i].conteudo %>
+                                        </p>
+                                        <div class="card-v2__saiba-mais">
+                                            <a href="<%= postsTop[i].slug %>">
+                                                Saiba mais
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                            </div><!--card-v2__info-->
-                        </div><!--card-v2-->
-
+                                </div><!--card-v2__info-->
+                            </div><!--card-v2-->
+                        <% } %>
                     </div>
                 </div><!--box-card-v2-->
             </div>
